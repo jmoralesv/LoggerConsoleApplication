@@ -7,7 +7,7 @@ namespace LoggerConsoleApplication.Logger
 {
     public class DatabaseLogger : IDatabaseLogger
     {
-        private readonly string _connectionString = ConfigurationManager.AppSettings["ConnectionString"];
+        private readonly string _connectionString = ConfigurationManager.ConnectionStrings["LoggerDbConnectionString"].ConnectionString;
 
         public void LogMessage(string message, LogType logType)
         {

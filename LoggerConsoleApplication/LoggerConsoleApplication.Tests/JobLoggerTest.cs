@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using Castle.Windsor;
 using LoggerConsoleApplication.Enums;
 using LoggerConsoleApplication.IoC;
@@ -62,7 +63,7 @@ namespace ConsoleUnitTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))] //This is added just because we don't have a database yet.
+        [ExpectedException(typeof(SqlException))] //This is added just because we don't have a database yet.
         public void LogMessage_ToDatabase_Successfully()
         {
             var jobLogger = _container.Resolve<IJobLogger>();
