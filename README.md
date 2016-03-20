@@ -6,7 +6,8 @@ Some points of interest:
 * Unit testing
 * Classes grouped in a multier-like architecture, but as this is an example, I have just used folders to represent this concept.
 
-Some frameworks/libraries used:
+Some tools/frameworks/libraries used:
+* Visual Studio 2015
 * .NET Framework 4.6
 * Castle Windsor 3.3
 * Microsoft Unit Test Framework
