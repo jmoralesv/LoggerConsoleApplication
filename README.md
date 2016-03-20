@@ -1,0 +1,2 @@
+# LoggerConsoleApplication
+Logger application
