@@ -8,7 +8,7 @@ namespace LoggerConsoleApplication.Logger
     public interface ILogger
     {
         /// <summary>
-        /// Log the specified message.
+        /// Logs the specified message.
         /// </summary>
         /// <param name="message">A message to log.</param>
         /// <param name="logType">The kind of message to log.</param>
