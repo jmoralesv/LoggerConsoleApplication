@@ -8,6 +8,6 @@ Some points of interest:
 
 Some tools/frameworks/libraries used:
 * Visual Studio 2019
-* .NET Framework 4.8
-* Castle Windsor 4.4
-* Microsoft Unit Test Framework 1.4
+* .NET 5
+* Castle Windsor
+* Microsoft Unit Test Framework
