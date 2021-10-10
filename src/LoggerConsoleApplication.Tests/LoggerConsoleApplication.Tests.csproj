@@ -14,9 +14,4 @@
   <ItemGroup>
     <ProjectReference Include="..\LoggerConsoleApplication\LoggerConsoleApplication.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-
 </Project>
