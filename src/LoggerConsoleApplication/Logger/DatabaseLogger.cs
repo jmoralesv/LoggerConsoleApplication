@@ -1,7 +1,7 @@
-﻿using System.Data;
-using LoggerConsoleApplication.Enums;
+﻿using LoggerConsoleApplication.Enums;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
+using System.Data;
 
 namespace LoggerConsoleApplication.Logger
 {
@@ -16,17 +16,19 @@ namespace LoggerConsoleApplication.Logger
 
         public void LogMessage(string message, LogType logType)
         {
-            var connectionString = configuration.GetConnectionString("LoggerDbConnectionString");
+            var connectionString = configuration["ConnectionStrings:LoggerDbConnectionString"];
             using var connection = new SqlConnection(connectionString);
-            connection.Open();
 
             var command = new SqlCommand
             {
                 Connection = connection,
+                CommandTimeout = 1,
                 CommandText = "INSERT INTO Log VALUES(@message, @type)"
             };
             command.Parameters.Add("@message", SqlDbType.NVarChar).Value = message;
             command.Parameters.Add("@type", SqlDbType.Int).Value = (int)logType;
+
+            connection.Open();
             command.ExecuteNonQuery();
         }
     }

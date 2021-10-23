@@ -3,12 +3,14 @@ using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using LoggerConsoleApplication.JobLogger;
 using LoggerConsoleApplication.Logger;
+using System.Diagnostics.CodeAnalysis;
 
 namespace LoggerConsoleApplication.IoC
 {
     /// <summary>
     /// Handles the management of types that will be available for this application.
     /// </summary>
+    [ExcludeFromCodeCoverage]
     public class JobLoggerInstaller : IWindsorInstaller
     {
         /// <summary>

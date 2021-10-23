@@ -10,4 +10,4 @@ Some tools/frameworks/libraries used:
 * Visual Studio 2019
 * .NET 5
 * Castle Windsor
-* Microsoft Unit Test Framework
+* XUnit, AutoFixture and Moq (unit testing)
