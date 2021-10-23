@@ -60,5 +60,15 @@ namespace LoggerConsoleApplication.Tests.JobLogger
             var result = jobLogger.LogMessage(message, LogDestination.LogToDatabase, LogType.Message);
             Assert.True(result);
         }
+
+        [Theory]
+        [InlineAutoMoqData(LogDestination.LogToConsole, LogType.Message)]
+        [InlineAutoMoqData(LogDestination.LogToDatabase, LogType.Warning)]
+        [InlineAutoMoqData(LogDestination.LogToFile, LogType.Error)]
+        public void LogMessage_UsingInlineData_Successfully(LogDestination logDestination, LogType logType, LoggerConsoleApplication.JobLogger.JobLogger jobLogger, string message)
+        {
+            var result = jobLogger.LogMessage(message, logDestination, logType);
+            Assert.True(result);
+        }
     }
 }
