@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using LoggerConsoleApplication.Enums;
+﻿using LoggerConsoleApplication.Enums;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 

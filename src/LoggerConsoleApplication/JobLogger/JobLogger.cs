@@ -1,6 +1,5 @@
 ﻿using LoggerConsoleApplication.Enums;
 using LoggerConsoleApplication.Logger;
-using System;
 
 namespace LoggerConsoleApplication.JobLogger
 {

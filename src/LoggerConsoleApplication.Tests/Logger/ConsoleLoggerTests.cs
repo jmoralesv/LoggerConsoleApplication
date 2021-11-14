@@ -1,7 +1,6 @@
 ﻿using LoggerConsoleApplication.Enums;
 using LoggerConsoleApplication.Logger;
 using LoggerConsoleApplication.Tests.Attributes;
-using System;
 using Xunit;
 
 namespace LoggerConsoleApplication.Tests.Logger

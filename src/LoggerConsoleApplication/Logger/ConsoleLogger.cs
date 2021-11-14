@@ -1,5 +1,4 @@
-﻿using System;
-using LoggerConsoleApplication.Enums;
+﻿using LoggerConsoleApplication.Enums;
 
 namespace LoggerConsoleApplication.Logger
 {

@@ -3,7 +3,6 @@ using LoggerConsoleApplication.Enums;
 using LoggerConsoleApplication.Logger;
 using LoggerConsoleApplication.Tests.Attributes;
 using Moq;
-using System;
 using Xunit;
 
 namespace LoggerConsoleApplication.Tests.JobLogger

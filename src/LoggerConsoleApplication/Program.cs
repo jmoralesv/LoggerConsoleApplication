@@ -6,7 +6,6 @@ using LoggerConsoleApplication.JobLogger;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Diagnostics.CodeAnalysis;
 
 namespace LoggerConsoleApplication
@@ -29,7 +28,7 @@ namespace LoggerConsoleApplication
             Console.ReadKey();
         }
 
-        // <summary>
+        /// <summary>
         /// This method has to have this signature for EF Core migrations to work.
         /// </summary>
         public static IHostBuilder CreateHostBuilder(string[] args) =>
