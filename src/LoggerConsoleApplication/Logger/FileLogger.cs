@@ -6,25 +6,25 @@ namespace LoggerConsoleApplication.Logger
 {
     public class FileLogger : IFileLogger
     {
-        private readonly string _fileNamePrefix = "LogFile";
-        private readonly IConfiguration configuration;
-        private readonly ILogger<FileLogger> innerLogger;
+        private const string FileNamePrefix = "LogFile";
+        private readonly IConfiguration _configuration;
+        private readonly ILogger<FileLogger> _innerLogger;
 
         public FileLogger(IConfiguration configuration, ILogger<FileLogger> innerLogger)
         {
-            this.configuration = configuration;
-            this.innerLogger = innerLogger;
+            _configuration = configuration;
+            _innerLogger = innerLogger;
         }
 
         public void LogMessage(string message, LogType logType)
         {
-            var _fileDirectory = configuration["AppSettings:LogFileDirectory"];
-            var fileName = string.Concat(_fileDirectory, _fileNamePrefix, DateTime.Now.ToString("yyyy-MM-dd"), ".txt");
+            var fileDirectory = _configuration["AppSettings:LogFileDirectory"];
+            var fileName = string.Concat(fileDirectory, FileNamePrefix, DateTime.Now.ToString("yyyy-MM-dd"), ".txt");
 
             using var writer = File.AppendText(fileName);
-            writer.WriteLine("{0} {1} {2}", DateTime.Now.ToShortDateString(), message, (int)logType);
+            writer.WriteLine($"{DateTime.Now.ToShortDateString()} {message} {(int)logType}");
 
-            innerLogger.LogInformation($"Message was saved to file: {fileName}");
+            _innerLogger.LogInformation("Message was saved to file: {fileName}", fileName);
         }
     }
 }

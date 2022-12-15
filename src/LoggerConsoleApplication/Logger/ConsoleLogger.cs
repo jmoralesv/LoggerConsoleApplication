@@ -13,7 +13,7 @@ namespace LoggerConsoleApplication.Logger
                 LogType.Error => ConsoleColor.Red,
                 _ => throw new ArgumentOutOfRangeException(nameof(logType), logType, "Error or Warning or Message must be specified"),
             };
-            Console.WriteLine("{0} {1} {2}", DateTime.Now.ToShortDateString(), message, (int)logType);
+            Console.WriteLine($"{DateTime.Now.ToShortDateString()} {message} {(int)logType}");
         }
     }
 }
