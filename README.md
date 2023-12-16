@@ -8,6 +8,6 @@ Some points of interest:
 
 Some tools/frameworks/libraries used:
 * Visual Studio 2022
-* .NET 7
+* .NET 8
 * Castle Windsor
 * XUnit, AutoFixture and Moq (unit testing)
