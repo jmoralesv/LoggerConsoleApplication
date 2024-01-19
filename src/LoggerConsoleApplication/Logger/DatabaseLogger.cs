@@ -3,33 +3,25 @@ using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using System.Data;
 
-namespace LoggerConsoleApplication.Logger
+namespace LoggerConsoleApplication.Logger;
+
+public class DatabaseLogger(IConfiguration configuration) : IDatabaseLogger
 {
-    public class DatabaseLogger : IDatabaseLogger
+    public void LogMessage(string message, LogType logType)
     {
-        private readonly IConfiguration configuration;
+        var connectionString = configuration["ConnectionStrings:LoggerDbConnectionString"];
+        using var connection = new SqlConnection(connectionString);
 
-        public DatabaseLogger(IConfiguration configuration)
+        var command = new SqlCommand
         {
-            this.configuration = configuration;
-        }
+            Connection = connection,
+            CommandTimeout = 1,
+            CommandText = "INSERT INTO Log VALUES(@message, @type)"
+        };
+        command.Parameters.Add("@message", SqlDbType.NVarChar).Value = message;
+        command.Parameters.Add("@type", SqlDbType.Int).Value = (int)logType;
 
-        public void LogMessage(string message, LogType logType)
-        {
-            var connectionString = configuration["ConnectionStrings:LoggerDbConnectionString"];
-            using var connection = new SqlConnection(connectionString);
-
-            var command = new SqlCommand
-            {
-                Connection = connection,
-                CommandTimeout = 1,
-                CommandText = "INSERT INTO Log VALUES(@message, @type)"
-            };
-            command.Parameters.Add("@message", SqlDbType.NVarChar).Value = message;
-            command.Parameters.Add("@type", SqlDbType.Int).Value = (int)logType;
-
-            connection.Open();
-            command.ExecuteNonQuery();
-        }
+        connection.Open();
+        command.ExecuteNonQuery();
     }
 }
