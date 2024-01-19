@@ -1,36 +1,24 @@
 ﻿using LoggerConsoleApplication.Enums;
 using LoggerConsoleApplication.Logger;
 
-namespace LoggerConsoleApplication.JobLogger
+namespace LoggerConsoleApplication.JobLogger;
+
+public class JobLogger(IConsoleLogger consoleLogger, IFileLogger fileLogger, IDatabaseLogger databaseLogger) : IJobLogger
 {
-    public class JobLogger : IJobLogger
+    public bool LogMessage(string message, LogDestination logDestination, LogType logType)
     {
-        private readonly IConsoleLogger _consoleLogger;
-        private readonly IFileLogger _fileLogger;
-        private readonly IDatabaseLogger _databaseLogger;
+        if (string.IsNullOrEmpty(message))
+            throw new ArgumentNullException(nameof(message), "Message can't be null.");
 
-        public JobLogger(IConsoleLogger consoleLogger, IFileLogger fileLogger, IDatabaseLogger databaseLogger)
+        ILogger logger = logDestination switch
         {
-            _consoleLogger = consoleLogger;
-            _fileLogger = fileLogger;
-            _databaseLogger = databaseLogger;
-        }
+            LogDestination.LogToDatabase => databaseLogger,
+            LogDestination.LogToFile => fileLogger,
+            LogDestination.LogToConsole => consoleLogger,
+            _ => throw new ArgumentOutOfRangeException(nameof(logDestination), logDestination, "Invalid configuration"),
+        };
 
-        public bool LogMessage(string message, LogDestination logDestination, LogType logType)
-        {
-            if (string.IsNullOrEmpty(message))
-                throw new ArgumentNullException(nameof(message), "Message can't be null.");
-
-            ILogger logger = logDestination switch
-            {
-                LogDestination.LogToDatabase => _databaseLogger,
-                LogDestination.LogToFile => _fileLogger,
-                LogDestination.LogToConsole => _consoleLogger,
-                _ => throw new ArgumentOutOfRangeException(nameof(logDestination), logDestination, "Invalid configuration"),
-            };
-
-            logger.LogMessage(message, logType);
-            return true;
-        }
+        logger.LogMessage(message, logType);
+        return true;
     }
 }
