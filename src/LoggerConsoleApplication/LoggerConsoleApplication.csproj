@@ -10,7 +10,7 @@
   <ItemGroup>
     <PackageReference Include="Castle.Windsor.Extensions.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.5" />
   </ItemGroup>
 
   <ItemGroup>
