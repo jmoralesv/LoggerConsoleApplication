@@ -1,4 +1,5 @@
-﻿using Castle.Windsor;
+﻿using System.Diagnostics.CodeAnalysis;
+using Castle.Windsor;
 using Castle.Windsor.Extensions.DependencyInjection;
 using LoggerConsoleApplication.Enums;
 using LoggerConsoleApplication.IoC;
@@ -6,12 +7,11 @@ using LoggerConsoleApplication.JobLogger;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using System.Diagnostics.CodeAnalysis;
 
 namespace LoggerConsoleApplication;
 
 [ExcludeFromCodeCoverage]
-public class Program
+public static class Program
 {
     public static void Main(string[] args)
     {
