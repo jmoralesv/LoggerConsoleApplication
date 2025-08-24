@@ -1,7 +1,7 @@
-﻿using LoggerConsoleApplication.Enums;
+﻿using System.Data;
+using LoggerConsoleApplication.Enums;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
-using System.Data;
 
 namespace LoggerConsoleApplication.Logger;
 
@@ -12,7 +12,7 @@ public class DatabaseLogger(IConfiguration configuration) : IDatabaseLogger
         var connectionString = configuration["ConnectionStrings:LoggerDbConnectionString"];
         using var connection = new SqlConnection(connectionString);
 
-        var command = new SqlCommand
+        using var command = new SqlCommand
         {
             Connection = connection,
             CommandTimeout = 1,
