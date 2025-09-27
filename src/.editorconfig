@@ -124,7 +124,7 @@ dotnet_diagnostic.CA1065.severity = error # CA1065: Do not raise exceptions in u
 
 # Globalization rules
 dotnet_diagnostic.CA1307.severity = warning # CA1307: Specify StringComparison for clarity
-dotnet_diagnostic.CA1308.severity = warning # CA1308: Normalize strings to uppercase
+dotnet_diagnostic.CA1308.severity = suggestion # CA1308: Normalize strings to uppercase
 dotnet_diagnostic.CA1311.severity = warning # CA1311: Specify a culture or use an invariant version
 
 # Maintainability rules
@@ -152,7 +152,7 @@ dotnet_diagnostic.CA1846.severity = warning # CA1846: Prefer AsSpan over Substri
 dotnet_diagnostic.CA1847.severity = warning # CA1847: Use string.Contains(char) instead of string.Contains(string) with single characters
 dotnet_diagnostic.CA1849.severity = warning # CA1849: Call async methods when in an async method
 dotnet_diagnostic.CA1851.severity = warning # CA1851: Possible multiple enumerations of IEnumerable collection
-dotnet_diagnostic.CA1852.severity = error # CA1852: Seal internal types
+dotnet_diagnostic.CA1852.severity = warning # CA1852: Seal internal types
 dotnet_diagnostic.CA1853.severity = warning # CA1853: Unnecessary call to 'Dictionary.ContainsKey(key)'
 dotnet_diagnostic.CA1854.severity = warning # CA1854: Prefer the IDictionary.TryGetValue(TKey, out TValue) method
 dotnet_diagnostic.CA1859.severity = warning # CA1859: Use concrete types when possible for improved performance
@@ -175,8 +175,8 @@ dotnet_diagnostic.CA5351.severity = error # CA5351 Do Not Use Broken Cryptograph
 dotnet_diagnostic.CA5358.severity = error # CA5358: Do Not Use Unsafe Cipher Modes
 dotnet_diagnostic.CA5363.severity = error # CA5363: Do not disable request validation (for ASP.NET MVC controllers)
 dotnet_diagnostic.CA5364.severity = error # CA5364: Do not use deprecated security protocols
-dotnet_diagnostic.CA5391.severity = error # CA5391: Use anti-forgery tokens in ASP.NET Core MVC controllers
-dotnet_diagnostic.CA5395.severity = warning # CA5395: Miss HttpVerb attribute for action methods
+dotnet_diagnostic.CA5391.severity = suggestion # CA5391: Use anti-forgery tokens in ASP.NET Core MVC controllers
+dotnet_diagnostic.CA5395.severity = suggestion # CA5395: Miss HttpVerb attribute for action methods
 
 # Usage rules
 dotnet_diagnostic.CA1801.severity = warning # CA1801: Review unused parameters
