@@ -7,7 +7,7 @@ Some points of interest:
 * Classes grouped in a multier-like architecture, but as this is an example, I just used folders to represent this concept.
 
 Some tools/frameworks/libraries used:
-* Visual Studio 2022
-* .NET 9
+* Visual Studio 2026
+* .NET 10.0 SDK
 * Castle Windsor
 * XUnit, AutoFixture and Moq (unit testing)
