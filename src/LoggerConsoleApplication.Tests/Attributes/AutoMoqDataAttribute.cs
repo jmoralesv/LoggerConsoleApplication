@@ -1,6 +1,6 @@
 ﻿using AutoFixture;
 using AutoFixture.AutoMoq;
-using AutoFixture.Xunit2;
+using AutoFixture.Xunit3;
 
 namespace LoggerConsoleApplication.Tests.Attributes;
 
@@ -11,18 +11,23 @@ namespace LoggerConsoleApplication.Tests.Attributes;
 public class AutoMoqDataAttribute : AutoDataAttribute
 {
     /// <summary>
+    /// Creates and configures the shared AutoFixture fixture with Moq support.
+    /// </summary>
+    internal static IFixture CreateFixture()
+    {
+        var fixture = new Fixture()
+            .Customize(new AutoMoqCustomization { ConfigureMembers = true });
+
+        fixture.Behaviors.OfType<ThrowingRecursionBehavior>().ToList().ForEach(b => fixture.Behaviors.Remove(b));
+        fixture.Behaviors.Add(new OmitOnRecursionBehavior());
+        return fixture;
+    }
+
+    /// <summary>
     /// Initializes a new instance of the <see cref="AutoMoqDataAttribute"/> class.
     /// </summary>
     public AutoMoqDataAttribute()
-        : base(() =>
-        {
-            var fixture = new Fixture()
-                .Customize(new AutoMoqCustomization { ConfigureMembers = true });
-
-            fixture.Behaviors.OfType<ThrowingRecursionBehavior>().ToList().ForEach(b => fixture.Behaviors.Remove(b));
-            fixture.Behaviors.Add(new OmitOnRecursionBehavior());
-            return fixture;
-        })
+        : base(CreateFixture)
     {
     }
 }

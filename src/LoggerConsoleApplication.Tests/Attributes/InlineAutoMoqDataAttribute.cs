@@ -1,4 +1,4 @@
-﻿using AutoFixture.Xunit2;
+﻿using AutoFixture.Xunit3;
 
 namespace LoggerConsoleApplication.Tests.Attributes;
 
@@ -11,6 +11,6 @@ namespace LoggerConsoleApplication.Tests.Attributes;
 /// </remarks>
 /// <param name="values"></param>
 public class InlineAutoMoqDataAttribute(params object[] values)
-    : InlineAutoDataAttribute(new AutoMoqDataAttribute(), values)
+    : InlineAutoDataAttribute(AutoMoqDataAttribute.CreateFixture, values)
 {
 }

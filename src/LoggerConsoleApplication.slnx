@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="../.github/dependabot.yml" />
+    <File Path="../.github/workflows/dotnet.yml" />
+    <File Path="../.gitignore" />
+    <File Path="../README.md" />
+    <File Path=".editorconfig" />
+    <File Path="nuget.config" />
+  </Folder>
+  <Project Path="LoggerConsoleApplication.Tests/LoggerConsoleApplication.Tests.csproj" />
+  <Project Path="LoggerConsoleApplication/LoggerConsoleApplication.csproj" />
+</Solution>
