@@ -11,7 +11,7 @@
     <PackageReference Include="Castle.Windsor.Extensions.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="7.1.1" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.14" />
-    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="9.0.22" />
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="10.0.14" />
   </ItemGroup>
 
   <ItemGroup>
